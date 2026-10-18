@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chantless | DeusExperiments</title><meta name="theme-color" content="#fafaf8">
+<meta name="robots" content="noindex">
+<link rel="preload" as="font" type="font/woff2" href="../fonts/cormorant-roman.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="../fonts/hanken-400.woff2" crossorigin>
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;font-display:swap;src:url(../fonts/cormorant-roman.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(../fonts/cormorant-italic-400.woff2) format('woff2')}
+@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/hanken-400.woff2) format('woff2')}
+/* ---- shared with the live site (header, nav, dialogs): copied verbatim ---- */
+:root{color-scheme:light;--paper:#fafaf8;--ink:#22211f;--muted:#75736e;--line:#dedbd5;--gold:#b58a3d;font-family:'Hanken Grotesk',sans-serif;background:var(--paper);color:var(--ink)}
+*{box-sizing:border-box}body{margin:0}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer}a{color:inherit}button:focus-visible,a:focus-visible{outline:1px solid var(--gold);outline-offset:7px}button:hover,a:hover{color:#8a682f}
+header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 3.4vw;position:relative;z-index:2}.wordmark{display:inline-flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.35vw,38px);font-weight:500;letter-spacing:-.025em;text-decoration:none;white-space:nowrap}.brand-mark{display:block;width:48px;height:auto;flex:none;mix-blend-mode:multiply}nav{display:flex;gap:clamp(20px,2.7vw,44px)}nav button{background:none;border:0;padding:10px 0;font-size:13px;letter-spacing:.12em;transition:color .2s}
+dialog{border:1px solid var(--line);padding:clamp(30px,5vw,76px);background:var(--paper);color:var(--ink);width:min(750px,calc(100vw - 32px));max-height:calc(100svh - 40px);box-shadow:0 24px 100px #29251b16}dialog::backdrop{background:#fafaf8ce;backdrop-filter:blur(10px)}.close{position:absolute;top:14px;right:19px;background:none;border:0;font-size:28px;font-weight:400;line-height:1;padding:8px;color:var(--muted)}dialog h2{font-size:11px;font-weight:400;letter-spacing:.22em;margin:0 0 30px}dialog p{font-family:'Cormorant Garamond',serif;font-size:clamp(29px,4.1vw,43px);font-style:italic;line-height:1.28;margin:0}dialog .mail{font-family:'Cormorant Garamond',serif;font-size:clamp(23px,4.3vw,38px);text-decoration-thickness:.5px;text-underline-offset:6px;overflow-wrap:anywhere}.contact-heading{text-transform:uppercase}
+@media(max-width:850px){header{padding:22px 24px;gap:15px}.wordmark{font-size:29px}nav{gap:20px}nav button{font-size:11px;letter-spacing:.06em}}
+@media(max-width:600px){header{padding:21px 20px 10px;display:block}.wordmark{display:inline-flex;font-size:clamp(26px,6.8vw,32px);gap:10px}.brand-mark{width:40px}nav{margin-top:17px;gap:27px}nav button{font-size:11px;letter-spacing:.12em;padding:8px 0}dialog{padding:55px 27px 40px}dialog h2{margin-bottom:25px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+/* ---- article placeholder (proposed) ---- */
+html{scroll-behavior:smooth}
+nav a.navlink{text-decoration:none;padding:10px 0;font-size:13px;letter-spacing:.12em;transition:color .2s}
+nav a.navlink[aria-current]{text-decoration:underline;text-decoration-thickness:.5px;text-underline-offset:7px;text-decoration-color:#c3b9a7}
+.page{max-width:1320px;margin:0 auto;padding:4vh 3.4vw 140px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:0 5.5vw}
+.row{display:grid;grid-template-columns:minmax(0,640px) 220px;gap:0 56px;align-items:start}
+.row>.span{grid-column:1/-1}
+.kicker,.label{font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0}
+.title-block{padding:2vh 0 36px}
+h1{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(76px,9.4vw,136px);line-height:.92;letter-spacing:-.035em;margin:22px 0 34px}
+
+
+.rule{height:1px;background:var(--line);border:0;margin:0}
+/* text placeholders: bars sized to a 17px / 1.7 reading measure */
+.bars{padding:2px 0 10px}.bars i{display:block;height:10px;border-radius:2px;background:#eceae5;margin:0 0 19px}
+.bars.lead i{height:15px;margin-bottom:22px;background:#e9e7e1}
+.bars i:last-child{margin-bottom:0}
+.para+.para{margin-top:30px}
+.introduction{padding-top:40px}
+.results-note{margin-top:24px}
+.prose{font-size:17px;line-height:1.8;color:var(--ink)}
+.prose p{margin:0 0 26px}
+.prose p:last-child{margin-bottom:0}
+/* opening: four short beats */
+.opening{padding:44px 0 50px}
+.beats{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:20px}
+.beats li{display:block}
+
+.beats i{display:block;height:13px;border-radius:2px;background:#e9e7e1}
+/* sections */
+section{padding:64px 0 6px;scroll-margin-top:24px}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin:0 0 30px}
+.sec-head .no{font-size:11px;letter-spacing:.2em;color:#a9a59d;flex:none;width:28px}
+h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(33px,3.3vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0}
+/* figure placeholders */
+.fig{margin:0}.frame{position:relative;border:1px solid var(--line);background:#f4f3ef repeating-linear-gradient(135deg,transparent 0 13px,rgba(34,33,31,.032) 13px 14px)}
+
+.frame.r169{aspect-ratio:16/9}.frame.r1610{aspect-ratio:16/10}.frame.r32{aspect-ratio:3/2}
+
+
+.explainer iframe{display:block;width:100%;height:auto;aspect-ratio:916/690;max-height:calc(100svh - 24px);min-height:620px;border:0;background:#05070a}.explainer .cap{margin-top:16px;font-size:12px;letter-spacing:.04em;color:var(--muted)}
+@media(max-width:600px){.explainer iframe{aspect-ratio:auto;height:min(860px,calc(100vh - 24px));height:min(860px,calc(100svh - 24px));min-height:440px}}
+.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 20px}.media-grid figure{margin:0;min-width:0}.media-grid figcaption{font-size:13px;line-height:1.5;color:var(--muted);margin-top:10px}.video-attribution{margin-bottom:40px}.media-grid video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#05070a}@media(max-width:600px){.media-grid{grid-template-columns:1fr}}
+.table-wrap{overflow-x:auto;margin:0 0 8px}.results{width:100%;border-collapse:collapse;font-size:13px;line-height:1.45;font-variant-numeric:tabular-nums}.results th{font-weight:400;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 14px 12px 0;border-bottom:1px solid var(--line);white-space:nowrap}.results td{padding:12px 14px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}.results td:nth-child(n+4),.results th:nth-child(n+4){text-align:right}
+figcaption{margin-top:14px}figcaption i{display:block;height:9px;width:46%;border-radius:2px;background:#eceae5}
+.endnav{margin-top:90px;padding-top:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:12px;letter-spacing:.14em}
+.endnav a{text-decoration:none;color:var(--muted)}
+/* contents rail */
+.toc{position:sticky;top:28px;align-self:start;padding-top:calc(2vh + 4px)}
+.toc summary{list-style:none;cursor:pointer}.toc summary::-webkit-details-marker{display:none}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:15px}
+.toc a{position:relative;display:block;text-decoration:none;font-size:13px;line-height:1.42;color:var(--muted);transition:color .25s}
+.toc a .n{font-size:10.5px;letter-spacing:.18em;padding-top:2px;color:#b3afa7}
+.toc a.active{color:var(--ink)}
+.toc a.active::before{content:"";position:absolute;left:-14px;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+@media(max-width:850px){nav a.navlink{font-size:11px;letter-spacing:.06em}}
+@media(max-width:600px){nav a.navlink{letter-spacing:.12em;padding:8px 0}}
+@media(max-width:1100px){.row{grid-template-columns:minmax(0,1fr) 190px;gap:0 36px}.page{grid-template-columns:170px minmax(0,1fr);gap:0 4vw}}
+@media(max-width:900px){
+  .page{display:block;padding:2vh 24px 120px}
+  .row{display:block}
+  .toc{position:static;padding:0;margin:8px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .toc summary{padding:14px 0;display:flex;justify-content:space-between;align-items:center}.toc summary::after{content:'+';font-size:16px;line-height:1;color:var(--muted)}.toc ol{margin:18px 0}
+  .toc a.active::before{display:none}
+  
+  section{padding-top:52px}
+}
+@media(max-width:600px){.page{padding:2vh 20px 120px}h1{font-size:clamp(68px,20vw,96px)}.sec-head{gap:12px}.sec-head .no{width:22px}}
+</style></head>
+<body>
+<header><a class="wordmark" href="../"><img class="brand-mark" src="../assets/deus-mark-156.webp" srcset="../assets/deus-mark-104.webp 104w, ../assets/deus-mark-156.webp 156w" sizes="48px" width="312" height="270" alt="" aria-hidden="true"><span>DeusExperiments</span></a><nav aria-label="DeusExperiments"><button type="button" data-dialog="mission">Mission</button><a class="navlink" href="../#research" aria-current="page">Research</a><button type="button" data-dialog="contact">Contact</button></nav></header>
+
+<div class="page">
+  <nav class="toc">
+    <ol>
+      <li><a href="#introduction"><span>Introduction</span></a></li>
+      <li><a href="#approach"><span>How are we approaching this?</span></a></li>
+      <li><a href="#results"><span>Results</span></a></li>
+      <li><a href="#conclusions"><span>The road ahead</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <div class="row title-block" id="top">
+      <div>
+        <h1>Chantless</h1>
+      </div>
+    </div>
+
+    <div class="row"><hr class="rule"><div></div></div>
+
+    <section id="introduction" class="row introduction" aria-labelledby="h-introduction">
+      <div class="span"><div class="sec-head"><h2 id="h-introduction">Introduction</h2></div></div>
+      <div class="prose">
+        <p>The point of a powerful tool is to give a person more freedom. Freedom to follow an idea, to try something unreasonable, to make a thing exactly the way they believe it ought to be. The people who do remarkable work care about details most people never notice. They know when a line is wrong, when an explanation is too complicated, when one more feature would make the product worse. We call that taste. It takes years to develop, and we believe it should give you an extraordinary advantage.</p>
+        <p>AI makes that advantage more interesting. Two people can sit down with the same model and come away with very different work. Someone with experience can see the promising idea buried in a mediocre answer. They know which question to ask next, which mistake matters, and when to say, “We can do better than this.” That judgment lets them reach further into what the machine can do. As intelligence becomes more accessible, knowing what to do with it becomes more valuable.</p>
+        <p>That’s the idea behind Chantless. Take the work you want to do. Establish what doing it well means. Shape the intelligence around that standard, keeping what the work needs and removing the unessential. Chantless means casting a spell without the incantation: the power is there, and the ceremony falls away. We’re building for people who have something of their own to express—and want the freedom to carry it further. Your taste. Multiplied.</p>
+      </div>
+    </section>
+
+    <section id="approach" class="row" aria-labelledby="h-approach">
+      <div class="span"><div class="sec-head"><h2 id="h-approach">How are we approaching this?</h2></div></div>
+      <figure class="fig span explainer">
+        <iframe id="explainer" data-src="explainer-machine/index.html" scrolling="no"></iframe><noscript><style>#explainer{display:none}</style><iframe class="explainer-nojs" src="explainer-machine/index.html" scrolling="no" style="display:block;width:100%;border:0;aspect-ratio:916/690;min-height:620px;background:#05070a"></iframe></noscript>
+      </figure>
+      <div></div>
+    </section>
+
+
+    <section id="results" class="row" aria-labelledby="h-results">
+      <div class="span"><div class="sec-head"><h2 id="h-results">Results</h2></div></div>
+      <div class="span media-grid">
+        <figure><video src="media/firetruck_test.mp4" poster="data:image/gif;base64,R0lGODlhEAAJAPAAAAAAAAAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7" data-poster="media/firetruck_test.avif" controls muted playsinline preload="none" width="1280" height="720"></video><figcaption>Building a LEGO fire truck.</figcaption></figure>
+        <figure><video src="media/pagoda_build_final.mp4" poster="data:image/gif;base64,R0lGODlhEAAJAPAAAAAAAAAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7" data-poster="media/pagoda_build_final.avif" controls muted playsinline preload="none" width="1280" height="720"></video><figcaption>Building a multi-tier LEGO pagoda.</figcaption></figure>
+        <figure><video src="media/pagoda_timelapse_final.mp4" poster="data:image/gif;base64,R0lGODlhEAAJAPAAAAAAAAAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7" data-poster="media/pagoda_timelapse_final.avif" controls muted playsinline preload="none" width="1280" height="720"></video><figcaption>A timelapse of the LEGO pagoda taking shape.</figcaption></figure>
+        <figure><video src="media/final_demo.mp4" poster="data:image/gif;base64,R0lGODlhEAAJAPAAAAAAAAAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7" data-poster="media/final_demo.avif" controls muted playsinline preload="none" width="1280" height="720"></video><figcaption>Building and testing a redstone half-adder in Minecraft.</figcaption></figure>
+      </div>
+      <div class="span prose video-attribution"><p>All videos show work generated by an agentic specialist extracted from Qwen 3.8 27B.</p></div>
+      <div class="span table-wrap"><table class="results">
+        <thead><tr><th>Specialist</th><th>Model</th><th>Benchmark</th><th>Specialist score</th><th>Big model score</th><th>As % of big model</th></tr></thead>
+        <tbody>
+          <tr><td>Function calling</td><td>Qwen3-8B</td><td>BFCL single-call</td><td>670 (66.5%)</td><td>667 (66.2%)</td><td>100.4%</td></tr>
+          <tr><td>Function calling, smaller</td><td>Qwen3-8B</td><td>BFCL single-call</td><td>719 (71.4%)</td><td>667 (66.2%)</td><td>107.8%</td></tr>
+          <tr><td>Terminal agent</td><td>Qwen3.8-27B</td><td>Terminal-Bench 2.1, pass@1</td><td>77.8%</td><td>74.7%</td><td>104.1%</td></tr>
+          <tr><td>Terminal agent, smaller</td><td>Qwen3.8-27B</td><td>Terminal-Bench 2.1, pass@1</td><td>74.4%</td><td>74.7%</td><td>99.6%</td></tr>
+          <tr><td>Math</td><td>Qwen3.8-27B</td><td>AIME 2025, avg@8</td><td>96.67%</td><td>99.17%</td><td>97.5%</td></tr>
+          <tr><td>Redaction</td><td>Qwen3.8-27B</td><td>RedactionBench</td><td>0.725</td><td>0.707</td><td>102.5%</td></tr>
+        </tbody>
+      </table></div>
+      <div class="span prose results-note"><p>Specialist results are with runtime memory &lt;20% of the full precision weights.</p><p>All results are at mask extraction on inference level attribution and requiring no post-training. Code to be released soon.</p></div>
+    </section>
+
+    <section id="conclusions" class="row" aria-labelledby="h-conclusions">
+      <div class="span"><div class="sec-head"><h2 id="h-conclusions">The road ahead</h2></div></div>
+      <div class="prose"><p>The tools for building your own specialists and forking, improving your own and works from others would all be possible in next releases coming soon.</p></div>
+    </section>
+  </main>
+</div>
+
+<dialog id="mission" aria-labelledby="mission-title"><button class="close" type="button" aria-label="Close">&times;</button><h2 id="mission-title">Mission</h2><p>Our mission is to create technology that makes humans superhuman, rather than replacing them with superintelligence.</p></dialog>
+<dialog id="contact" aria-labelledby="contact-title"><button class="close" type="button" aria-label="Close">&times;</button><h2 class="contact-heading" id="contact-title">Write to us</h2><a class="mail" href="mailto:hello@deusexperiments.com">hello@deusexperiments.com</a></dialog>
+
+<script>
+document.querySelectorAll('[data-dialog]').forEach(function(button){button.addEventListener('click',function(){document.getElementById(button.dataset.dialog).showModal()})});
+document.querySelectorAll('dialog').forEach(function(dialog){dialog.querySelector('.close').addEventListener('click',function(){dialog.close()});dialog.addEventListener('click',function(event){if(event.target!==dialog)return;var r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()})});
+// contents: collapsed by default on narrow screens, active section marked with the gold point
+var toc=document.querySelector('.toc'),narrow=matchMedia('(max-width:900px)');
+var links=[].slice.call(toc.querySelectorAll('a')),byId={};links.forEach(function(a){byId[a.getAttribute('href').slice(1)]=a});
+var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.remove('active')});byId[e.target.id].classList.add('active')}})},{rootMargin:'-30% 0px -60% 0px'});
+document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+links.forEach(function(a){a.addEventListener('click',function(){if(narrow.matches)toc.removeAttribute('open')})});
+</script>
+<script>
+(function(){var vs=[].slice.call(document.querySelectorAll('video[data-poster]'));function show(v){var p=v.getAttribute('data-poster');v.removeAttribute('data-poster');var i=new Image();i.onload=function(){v.poster=p};i.onerror=function(){v.poster=p.replace(/\.avif$/,'.jpg')};i.src=p}if(!('IntersectionObserver' in window)){vs.forEach(show);return}var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){o.unobserve(e.target);show(e.target)}})},{rootMargin:'800px 0px'});vs.forEach(function(v){o.observe(v)})})();
+</script>
+<noscript><style>video[data-poster="media/firetruck_test.avif"]{background:#05070a url(media/firetruck_test.jpg) center/cover}video[data-poster="media/pagoda_build_final.avif"]{background:#05070a url(media/pagoda_build_final.jpg) center/cover}video[data-poster="media/pagoda_timelapse_final.avif"]{background:#05070a url(media/pagoda_timelapse_final.jpg) center/cover}video[data-poster="media/final_demo.avif"]{background:#05070a url(media/final_demo.jpg) center/cover}</style></noscript>
+<script>(function(){var f=document.getElementById('explainer');function go(){if(f.dataset.src){f.src=f.dataset.src;delete f.dataset.src}}if(!('IntersectionObserver' in window)){go();return}var o=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){o.disconnect();go()}},{rootMargin:'600px 0px'});o.observe(f);addEventListener('load',function(){(window.requestIdleCallback||function(c){setTimeout(c,1500)})(go,{timeout:3000})})})();</script>
+<script>if('serviceWorker'in navigator&&window.isSecureContext){addEventListener('load',function(){var sw=navigator.serviceWorker;sw.register('/sw.js',{scope:'/'}).then(function(){return sw.ready}).then(function(r){var u=[];[window].concat([].slice.call(frames)).forEach(function(w){try{w.performance.getEntriesByType('resource').forEach(function(e){u.push(e.name)})}catch(e){}});r.active&&r.active.postMessage({type:'warm',urls:u})}).catch(function(){})})}</script>
+</body></html>
